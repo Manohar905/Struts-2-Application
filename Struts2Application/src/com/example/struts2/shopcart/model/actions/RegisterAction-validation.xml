@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+        "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+        "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+        
+        <validators>
+        
+            <field name="firstName">
+                <field-validator type="requiredstring">
+                        <message key="First name is required"/>
+                </field-validator>
+            </field>
+            
+            <field name="lastName">
+                <field-validator type="requiredstring">
+                        <message key="Last name is required"/>
+                </field-validator>
+            </field>
+            
+            <field name="userName">
+                <field-validator type="required">
+                        <message key="Please provide Your BirthDate"/>
+                </field-validator>
+                <field-validator type="requiredstring">
+                        <message key="Username is required"/>
+                </field-validator>
+            </field>
+            
+            <field name="password">
+                <field-validator type="requiredstring">
+                        <message key="Password is required"/>
+                </field-validator>
+            <field-validator type="expression">
+                <param name="expression">userName!=password</param>
+                <message key="USERNAME and PASSWORD cannot be same"/>
+            </field-validator>
+            </field>
+            
+            <field name="emailId">
+                <field-validator type="requiredstring">
+                        <message key="Email-Id is required"/>
+                </field-validator>
+                <field-validator type="email">
+                        <message key="enter a valid Email-Id "/>
+                </field-validator>
+            </field>
+            
+            <field name="gender">
+                <field-validator type="requiredstring">
+                        <message key="Please select the gender"/>
+                </field-validator>
+            </field>
+            
+            <field name="hobbies">
+                <field-validator type="expression">
+                    <param name="expression">hobbies.length !=0 </param>
+                        <message key="Please select the hobby"/>
+                </field-validator>
+            </field>
+            
+            <field name="birthDate">
+                <field-validator type="required">
+                    <message key="Please Provide a BirthDate"/>
+                </field-validator>
+                <field-validator type="date">
+                <!-- The format here is mm-dd-yy -->
+                    <param name="min">1/1/70</param>
+                    <param name="max">12/31/05</param>
+                    <message key="Please enter a valid date"/>
+                </field-validator>
+            </field>
+<!--    
+    <field name="postalcode">
+            <field-validator type="requiredstring">
+        <message key="requiredstring"/>
+        </field-validator>
+            <field-validator type="regex">
+            <param name="expression"><![CDATA[^\d*$]]></param>
+            <message key="requiredinteger"/>
+          </field-validator>
+    </field>
+-->
+        </validators>
